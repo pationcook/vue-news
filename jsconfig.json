@@ -3,6 +3,8 @@
     "target": "es5",
     "module": "esnext",
     "baseUrl": "./",
+    //vue 파일 이름 변경시 (ts셋팅) 에러뱉는경우 옵션주면 사라짐
+    "forceConsistentCasingInFileNames": false,
     "moduleResolution": "node",
     "paths": {
       "@/*": [

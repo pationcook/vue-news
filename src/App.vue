@@ -9,13 +9,21 @@
 </template>
 
 <script>
+import ToolBar from '/components/ToolBar.vue';
+
 export default {
   name: 'App',
+  components : ToolBar,
   method : {
     fetchData() {
       console.log('hellow world')
     },
+    test(){
+      this.test();
+      console.log('test');
+    }
   }
+
 }
 
 </script>
