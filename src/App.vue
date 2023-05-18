@@ -1,10 +1,7 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-
   <div id="App">
       <!-- url이 만약 jobs-->
       뷰 테스트
-      <ToolBar></ToolBar>
       <tool-bar></tool-bar>
       <router-view></router-view>
   </div>
