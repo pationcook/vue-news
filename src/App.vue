@@ -1,7 +1,10 @@
 <template>
   <div id="App">
-      <!-- url이 만약 jobs-->
-      뷰 테스트
+      <!-- 케밥 케이스 : tool-bar
+           카멜 케이스 : toolBar
+           파스칼 케이스 : ToolBar
+           스네이크 케이스 : tool_bar
+      -->
       <tool-bar></tool-bar>
       <router-view></router-view>
   </div>
@@ -12,27 +15,7 @@ import ToolBar from './components/ToolBar.vue';
 
 export default {
   components: { ToolBar },
-  name: 'App',
-  method : {
-    fetchData() {
-      console.log('hellow world')
-    },
-    test(){
-      this.test();
-      console.log('test');
-    }
-  }
+  name: 'App'
 }
-
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
