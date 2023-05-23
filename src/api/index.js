@@ -25,8 +25,13 @@ import axios  from 'axios';
         return axios.get(`${config.baseUrl}/jobs/1.json`);
     }
 
+    const userList = (userName ) => {
+        return axios.get(`${config.baseUrl}/user/${userName}.json`);
+    }
+
 export {
     newsList,
     jobsList,
-    askList
+    askList,
+    userList
 }

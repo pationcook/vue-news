@@ -3,8 +3,9 @@
         jobsView
     </div>
     <!-- 키 propery는 외부에 노출되지 않습니다. -->
-    <div v-for="job in jobs" v-bind:key="job.id" :id="job.id">
-        {{ job.title }}
+    <div v-for="job in $store.getters.getJobs" v-bind:key="job.id" :id="job.id">
+        <a v-bind:href="job.url">{{ job.title }}</a>
+        <small>{{ job.domain }}</small>
     </div>
 </template>
 
@@ -17,9 +18,6 @@ import { useStore } from 'vuex';
 
 export default {
     data() {
-        return {
-            jobs:[],
-        }
     },
     method(){
 
@@ -30,10 +28,8 @@ export default {
     created() {
         const store = useStore();
         store.dispatch('FETCH_JOBS');
-        this.jobs = store.getters.getJobs;
     },
     mounted(){
-        console.log('마운트중');
         
     },
     destory(){

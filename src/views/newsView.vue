@@ -8,8 +8,9 @@
 
         <!-- v-for 문은 v-bind:key 를 요구하는 옵션이 존재하므로 반드시 해당 문법으로 만든다 v-bind 옵션에서 
             :key는 id와 같은 역할을한다. -->
-        <div v-for="(user) in users" v-bind:key="user">
-            {{ user }}
+        <div v-for="(item) in news" v-bind:key="item">
+            <a v-bind:href="item.url">{{ item.title }}</a>
+            <small> {{ item.time_ago }} by <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link></small>
         </div>
         
     </div>
@@ -21,7 +22,7 @@ import { newsList } from '../api/index.js';
 export default {
     data() {
         return {
-            users:[],
+            news:[],
             newsId:'key',
             newsTitle:'뉴 스 타 이 틀'
         }
@@ -30,7 +31,7 @@ export default {
         const vm = this;
         newsList()
         .then(function(response){
-            vm.users = response.data;
+            vm.news = response.data;
 
             // -> 화살표함수와 일반 함수의 차이점은
             // 여러가지가 있지만, 여기서 볼 수 있는 차이점은 this의 접근이다.
