@@ -20,7 +20,7 @@ import axios  from 'axios';
         return axios.get(config.baseUrl+'/jobs/1.json');
     }
 
-    //가장 트렌디 문법
+    //람다식 + 리트럴 문법
     const askList = () => {
         return axios.get(`${config.baseUrl}/jobs/1.json`);
     }

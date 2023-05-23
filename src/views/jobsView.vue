@@ -21,6 +21,12 @@ export default {
             jobs:[],
         }
     },
+    method(){
+
+    },
+    computed(){
+
+    },
     created() {
         const store = useStore();
         store.dispatch('FETCH_JOBS');
@@ -28,6 +34,9 @@ export default {
     },
     mounted(){
         console.log('마운트중');
+        
+    },
+    destory(){
         
     }
 }
