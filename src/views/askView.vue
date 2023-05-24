@@ -78,4 +78,10 @@ export default {
     .link-text{
         color:gray;
     }
+    a:link {
+    color:black;
+    }
+    a:visited{
+    color: black;
+    }
 </style>

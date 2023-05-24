@@ -3,7 +3,7 @@
         <ul class="news-list">
             <li class="post" v-for="(item) in news" v-bind:key="item">
                 <diV class="points">
-                    {{ item.points }}
+                    {{ item.points || 0}}
                 </diV>
                 <div>
                     <p class="news-title">
@@ -93,6 +93,13 @@ export default {
     }
     .link-text{
         color:gray;
+    }
+    
+    a:link {
+       color:black;
+    }
+    a:visited{
+        color: black;
     }
 </style>
 
