@@ -1,12 +1,23 @@
 <template>
-    <div>
-        askView 얘는 에스크임
-    </div>
-    <!-- mapGetters에 있는 get_ask를 바로 접근하여 코딩 할 수 있다. -->
-    <div v-for="ask in GET_ASK" v-bind:key="ask">
-        <a :href="`/item/${ask.id}`"> {{ ask.title }}</a>
-        <small> {{ ask.user }}</small>
-    </div>
+    <ul class="ask-list">
+        <!-- mapGetters에 있는 get_ask를 바로 접근하여 코딩 할 수 있다. -->
+        <li class="post" v-for="ask in GET_ASK" v-bind:key="ask">
+            <div class="points">
+                {{ ask.points || 0 }}
+            </div>
+            <div>
+                <p class="ask-title">
+                    <a :href="`/item/${ask.id}`"> {{ ask.title }}</a>
+                </p>
+                <small class="link-text">
+                    by
+                    <a :href="`/user/${ask.user}`">
+                        {{ ask.user }}
+                    </a>
+                </small>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <script>
@@ -40,3 +51,30 @@ export default {
 
 }
 </script>
+
+<style scoped>
+    .ask-list {
+        margin:  0;
+        padding: 0;
+    }
+    .post {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #c9c0c0;
+    }
+    .points {
+        width: 80px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(157, 212, 136);
+    }
+    .ask-title{
+        margin: 0;
+    }
+    .link-text{
+        color:gray;
+    }
+</style>

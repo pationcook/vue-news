@@ -1,18 +1,32 @@
 <template>
     <div>
+        <ul class="news-list">
+            <li class="post" v-for="(item) in news" v-bind:key="item">
+                <diV class="points">
+                    {{ item.points }}
+                </diV>
+                <div>
+                    <p class="news-title">
+                        <a v-bind:href="item.url">
+                            {{ item.title }}
+                        </a>
+                    </p>
+                    <small class="link-text"> by {{ item.time_ago }} <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link></small>
+                </div>
+            </li>
+        </ul>
         <!-- id 앞에 :을 붙이면 data와 mapping 가능한 형태로 만들어준다.-->
-        <span :id="newsId">{{ this.newsTitle }}</span>
+        <!-- <span :id="newsId">{{ this.newsTitle }}</span> -->
         <!-- 위의 문법이 vue 권장 형태 -->
-        <span id="key2">{{ this.newsTitle }}</span>
+        <!-- <span id="key2">{{ this.newsTitle }}</span> -->
 
 
         <!-- v-for 문은 v-bind:key 를 요구하는 옵션이 존재하므로 반드시 해당 문법으로 만든다 v-bind 옵션에서 
             :key는 id와 같은 역할을한다. -->
-        <div v-for="(item) in news" v-bind:key="item">
-            <a v-bind:href="item.url">{{ item.title }}</a>
-            <small> {{ item.time_ago }} by <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link></small>
-        </div>
-        
+        <!-- <div v-for="(item) in news" v-bind:key="item"> -->
+            <!-- <a v-bind:href="item.url">{{ item.title }}</a> -->
+            <!-- <small> {{ item.time_ago }} by <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link></small> -->
+        <!-- </div> -->
     </div>
 </template>
 
@@ -55,7 +69,30 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    .news-list{
+        margin:  0;
+        padding: 0;
+    }
+    .post {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #c9c0c0;
+    }
+    .points {
+        width: 80px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(157, 212, 136);
+    }
+    .news-title{
+        margin: 0;
+    }
+    .link-text{
+        color:gray;
+    }
 </style>
 

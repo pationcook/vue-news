@@ -28,7 +28,15 @@ body {
   padding: 0px;
   margin: 0px;
 }
-
+a {
+  text-decoration: none;
+}
+a:hover{
+  color:blueviolet
+}
+a.router-link-exact-active {
+  text-decoration: underline;
+}
 .page-enter-active, .page-leave-active {
   transition: opacity .5s;
 }
