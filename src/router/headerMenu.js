@@ -20,7 +20,7 @@ export const headerMenuRoutes = [
         component: askView,
     },
     {
-        path : '/item',
+        path : '/item/:id',
         component: itemView,
     },
     {

@@ -1,6 +1,6 @@
 import {createStore} from 'vuex';
 //vuex 는 상태관리 도구이며, 상태란, 여러 컴포넌트 간의 공유되는 데이터 속성이라고 말 할 수 있다.
-import { jobsList, userList } from '@/api';
+import { jobsList, userList, itemList } from '@/api';
 import { AskModule } from './modules/AskModule';
 
 
@@ -16,6 +16,7 @@ export const store = createStore({
     state: {
         jobs : [],
         userInfo : {},
+        itemInfo : {},
     },
 
     //상태를 가져오기 위해 사용됨. 확장하여 계산 로직을 추가하여 사용할 수 도 있다. (Computed와 동일한 속성)
@@ -25,6 +26,9 @@ export const store = createStore({
         },
         GET_USER_INFO(state) {
             return state.userInfo;
+        },
+        GET_ITEM_INFO(state) {
+            return state.itemInfo;
         }
         
     },
@@ -36,6 +40,9 @@ export const store = createStore({
         },
         SET_USER(state, payload) {
             state.userInfo = payload
+        },
+        SET_ITEMS(state, payload) {
+            state.itemInfo = payload
         }
     },
 
@@ -55,8 +62,14 @@ export const store = createStore({
             console.log('FETCH:' + userName);
             userList(userName)
                 .then( res => {
-                    console.log(res);
                     commit('SET_USER',res.data);
+                })
+        },
+        FETCH_ITEM({ commit }, id) {
+            itemList(id)
+                .then( res => {
+                    console.log(res.data);
+                    commit('SET_ITEMS', res.data);
                 })
         }
     },

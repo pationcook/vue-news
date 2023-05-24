@@ -4,8 +4,8 @@
     </div>
     <!-- mapGetters에 있는 get_ask를 바로 접근하여 코딩 할 수 있다. -->
     <div v-for="ask in GET_ASK" v-bind:key="ask">
-        <a :href="ask.url"> {{ ask.title }}</a>
-        <small> {{ ask.domain }}</small>
+        <a :href="`/item/${ask.id}`"> {{ ask.title }}</a>
+        <small> {{ ask.user }}</small>
     </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
         // ...mapGetters({
         //     askItem : 'GET_ASK'
         // }),
+        // 위와 같이 사용하면 GET_ASK가 아닌 askItem으로 맵핑된다 name 지정 가능.
  
     },
     methods:{

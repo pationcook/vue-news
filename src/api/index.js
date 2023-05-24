@@ -22,16 +22,20 @@ import axios  from 'axios';
 
     //람다식 + 리트럴 문법
     const askList = () => {
-        return axios.get(`${config.baseUrl}/jobs/1.json`);
+        return axios.get(`${config.baseUrl}/ask/1.json`);
     }
 
-    const userList = (userName ) => {
+    const userList = (userName) => {
         return axios.get(`${config.baseUrl}/user/${userName}.json`);
     }
 
+    const itemList = (id) => {
+        return axios.get(`${config.baseUrl}/item/${id}.json`)
+    }
 export {
     newsList,
     jobsList,
     askList,
-    userList
+    userList,
+    itemList
 }

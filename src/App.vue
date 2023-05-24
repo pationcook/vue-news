@@ -6,7 +6,11 @@
            스네이크 케이스 : tool_bar
       -->
       <tool-bar></tool-bar>
-      <router-view></router-view>
+      <!-- 트랜지션 api 사용하여 부드러운 화면 전환을 가능하게 함. -->
+      <transition name="page">
+        <router-view></router-view> 
+      </transition>
+      
   </div>
 </template>
 
@@ -19,3 +23,16 @@ export default {
 }
 </script>
 
+<style>
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-to {
+  opacity: 0;
+}
+</style>
