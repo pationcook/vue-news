@@ -10,6 +10,7 @@
                     <a :href="`/item/${ask.id}`"> {{ ask.title }}</a>
                 </p>
                 <small class="link-text">
+                    {{ ask.time_ago }}
                     by
                     <a :href="`/user/${ask.user}`">
                         {{ ask.user }}
