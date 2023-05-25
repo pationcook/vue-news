@@ -9,14 +9,17 @@ import userView from '../views/UserView.vue';
 export const headerMenuRoutes = [
     {
         path : '/news',
+        name : 'news',
         component: newsView,
     },
     {
         path : '/jobs',
+        name : 'jobs',
         component: jobsView,
     },
     {
         path : '/ask',
+        name : 'ask',
         component: askView,
     },
     {

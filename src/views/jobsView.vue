@@ -1,6 +1,9 @@
 <template>
-    <ul class="jobs">
-        <li class="post" v-for="job in $store.getters.getJobs" v-bind:key="job.id" :id="job.id">
+    <div>
+        <list-item></list-item>
+    </div>
+    <!-- <ul class="jobs">
+        <li class="post" v-for="job in $store.getters.GET_JOBS" v-bind:key="job.id" :id="job.id">
             <div class="points">
                 {{ job.points || 0 }}
             </div>
@@ -19,69 +22,22 @@
                 </small>
             </div>
         </li>
-    </ul>
+    </ul> -->
     <!-- 키 propery는 외부에 노출되지 않습니다. -->
-    
 </template>
 
 
 <script>
 //import { jobsList } from '../api/index.js';
-import { useStore } from 'vuex';
-
+// import { useStore } from 'vuex';
+import ListItem from '@/components/ListItem.vue';
 
 
 export default {
-    data() {
-    },
-    method(){
-
-    },
-    computed(){
-
-    },
-    created() {
-        const store = useStore();
-        store.dispatch('FETCH_JOBS');
-    },
-    mounted(){
-        
-    },
-    destory(){
-        
-    }
+  components: { ListItem },
+  created() {
+        // const store = useStore();
+        // store.dispatch('FETCH_JOBS');
+  },
 }
 </script>
-
-<style scoped>
-    .jobs {
-        margin:  0;
-        padding: 0;
-    }
-    .post {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #c9c0c0;
-    }
-    .points {
-        width: 80px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgb(157, 212, 136);
-    }
-    .job-title{
-        margin: 0;
-    }
-    .link-text{
-        color:gray;
-    }
-    a:link {
-    color:black;
-    }
-    a:visited{
-    color: black;
-    }
-</style>
