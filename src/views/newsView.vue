@@ -1,6 +1,7 @@
 <template>
     <div>
         <list-item></list-item>
+        
         <!-- id 앞에 :을 붙이면 data와 mapping 가능한 형태로 만들어준다.-->
         <!-- <span :id="newsId">{{ this.newsTitle }}</span> -->
         <!-- 위의 문법이 vue 권장 형태 -->
@@ -22,6 +23,15 @@ import ListItem from '@/components/ListItem.vue';
 export default {
     components : {
         ListItem
+    },
+    created() {
+        this.$store.dispatch('FETCH_NEWS')
+            .finally(() => {
+                console.log('로딩 종료 에밋')
+                this.$emit('loading-end',{loading : false});
+            });
+    },
+    mounted(){
     }
     // data() {
     //     return {

@@ -6,7 +6,7 @@
                         {{ GET_ITEM_INFO.user }}
                 </router-link>
             </template>
-            <template v-slot:time> {{ GET_ITEM_INFO.time_ago }}</template>
+            <template v-slot:time> {{ 'posted :' + GET_ITEM_INFO.time_ago }}</template>
             <!-- template은 slot을 뚫어놓았을때 태그 없이 text만 들어간다. -->
         </user-profile>
         <!-- itemView

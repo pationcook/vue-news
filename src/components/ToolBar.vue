@@ -1,6 +1,6 @@
 <template>
     <div v-id class="header">
-        <router-link to="/ask"> ASK </router-link> |
+        <router-link to="/ask"> ASK  </router-link> |
         <router-link to="/jobs">JOBS </router-link> |
         <router-link to="/news">NEWS </router-link> 
     </div>    
@@ -8,9 +8,6 @@
 
 <script>
 export default {
-    setup() {
-        
-    },
 }
 </script>
 

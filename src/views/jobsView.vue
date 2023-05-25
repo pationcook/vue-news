@@ -37,7 +37,12 @@ export default {
   components: { ListItem },
   created() {
         // const store = useStore();
-        // store.dispatch('FETCH_JOBS');
+        this.$emit('loading-start',{loading : true});
+        this.$store.dispatch('FETCH_JOBS')
+            .finally(() => {
+                console.log('로딩 종료 에밋')
+                this.$emit('loading-end',{loading : false});
+            });
   },
 }
 </script>

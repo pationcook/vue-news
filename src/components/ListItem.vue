@@ -47,21 +47,12 @@ export default {
             } else {
                 return [];
             }
+            
         }
-    },
-    methods: {
-
     },
     created() {
-        const name = this.$route.name;
-        if(name === 'news'){
-            this.$store.dispatch('FETCH_NEWS');
-        } else if (name === 'jobs') {
-            this.$store.dispatch('FETCH_JOBS');
-        } else if (name === 'ask') {
-            this.$store.dispatch('FETCH_ASK');
-        }
-        
+    },
+    mounted() {
     }
 }
 </script>

@@ -60,6 +60,7 @@ export const store = createStore({
                 .then( res => {
                     console.log(res);
                     this.commit('SET_JOBS',res.data);
+                    return res;
                 })
                 .catch( error => {
                     console.error(error);
@@ -70,6 +71,7 @@ export const store = createStore({
             userList(userName)
                 .then( res => {
                     commit('SET_USER',res.data);
+                    return res;
                 })
         },
         FETCH_ITEM({ commit }, id) {
@@ -77,12 +79,16 @@ export const store = createStore({
                 .then( res => {
                     console.log(res.data);
                     commit('SET_ITEMS', res.data);
+                    return res;
                 })
         },
         FETCH_NEWS({commit}){
             newsList()
                 .then( res => {
                     commit('SET_NEWS',res.data);
+                    return res;
+                })
+                .finally( () => {
                 })
         }
     },
