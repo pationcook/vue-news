@@ -29,6 +29,7 @@ export default {
   created() {
   },
   methods: {
+      //에밋으로 로딩 스타트와 엔드를 실행 시키게 되면 로딩 체인지를 실행하게끔 연결해 놨다.
       loadingChange(payload) {
           this.loadingStatus = payload.loading;
       },

@@ -1,3 +1,5 @@
+
+<!-- 로딩바 역할을 할 스니퍼 -->
 <template>
     <div class="lds-facebook" v-if="loading">
         <div></div>

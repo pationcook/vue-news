@@ -37,23 +37,9 @@
 export default {
     computed: {
         ListItems() {
-            const name = this.$route.name;
-            if(name === 'news'){
-                return this.$store.getters.GET_NEWS;
-            } else if (name === 'jobs') {
-                return this.$store.getters.GET_JOBS;
-            } else if (name === 'ask') {
-                return this.$store.getters.GET_ASK;
-            } else {
-                return [];
-            }
-            
+            return this.$store.getters.GET_LIST
         }
     },
-    created() {
-    },
-    mounted() {
-    }
 }
 </script>
 <style scoped>

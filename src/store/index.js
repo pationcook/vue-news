@@ -1,7 +1,6 @@
 import {createStore} from 'vuex';
 //vuex 는 상태관리 도구이며, 상태란, 여러 컴포넌트 간의 공유되는 데이터 속성이라고 말 할 수 있다.
-import { newsList, jobsList, userList, itemList } from '@/api';
-import { AskModule } from './modules/AskModule';
+import { userList, itemList, fetchList } from '@/api';
 
 
 // vue.js에서 store를 사용하는 이유는 상태관리를 보다 효율적으로 하기 위함이다.
@@ -14,58 +13,40 @@ export const store = createStore({
 
     //데이터들의 상태를 보관
     state: {
-        jobs : [],
         userInfo : {},
         itemInfo : {},
-        news : [],
+        list:[],
     },
 
     //상태를 가져오기 위해 사용됨. 확장하여 계산 로직을 추가하여 사용할 수 도 있다. (Computed와 동일한 속성)
     getters: {
-        GET_JOBS(state) {
-            return state.jobs;
-        },
         GET_USER_INFO(state) {
             return state.userInfo;
         },
         GET_ITEM_INFO(state) {
             return state.itemInfo;
         },
-        GET_NEWS(state) {
-            return state.news;
+        GET_LIST(state) {
+            return state.list;
         }
         
     },
 
     //변이를 일이키기 위해 사용됨 (상태를 변경하기 위함) -> 동기식인 것만 사용
     mutations: {
-        SET_JOBS(state, payload) {
-            state.jobs = payload;
-        },
         SET_USER(state, payload) {
             state.userInfo = payload
         },
         SET_ITEMS(state, payload) {
             state.itemInfo = payload
         },
-        SET_NEWS(state, payload) {
-            state.news = payload;
+        SET_LIST(state, payload){
+            state.list = payload;
         }
     },
 
     //비동기에 대한 변이를 일으키기 위해서 사용됨
     actions: {
-        FETCH_JOBS() {
-            jobsList()
-                .then( res => {
-                    console.log(res);
-                    this.commit('SET_JOBS',res.data);
-                    return res;
-                })
-                .catch( error => {
-                    console.error(error);
-                })
-        },
         FETCH_USER({ commit },userName) {
             console.log('FETCH:' + userName);
             userList(userName)
@@ -82,17 +63,10 @@ export const store = createStore({
                     return res;
                 })
         },
-        FETCH_NEWS({commit}){
-            newsList()
-                .then( res => {
-                    commit('SET_NEWS',res.data);
-                    return res;
-                })
-                .finally( () => {
-                })
+        FETCH_LIST({commit}, pageName){
+            fetchList(pageName)
+                .then( res => commit('SET_LIST', res.data))
+                .catch(e => console.error(e));
         }
-    },
-    modules : {
-        askModule : AskModule
     }
 });

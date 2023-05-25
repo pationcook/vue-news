@@ -9,22 +9,6 @@ import axios  from 'axios';
     const config = {
         baseUrl : 'https://api.hnpwa.com/v0'
     }
-
-    //람다식
-    const newsList = () => {
-        return axios.get(config.baseUrl+'/news/1.json');
-    }
-
-    //함수
-    function jobsList() {
-        return axios.get(config.baseUrl+'/jobs/1.json');
-    }
-
-    //람다식 + 리트럴 문법
-    const askList = () => {
-        return axios.get(`${config.baseUrl}/ask/1.json`);
-    }
-
     const userList = (userName) => {
         return axios.get(`${config.baseUrl}/user/${userName}.json`);
     }
@@ -32,10 +16,12 @@ import axios  from 'axios';
     const itemList = (id) => {
         return axios.get(`${config.baseUrl}/item/${id}.json`)
     }
+
+    const fetchList = (pageName) => {
+        return axios.get(config.baseUrl+`/${pageName}/1.json`);
+    }
 export {
-    newsList,
-    jobsList,
-    askList,
     userList,
-    itemList
+    itemList,
+    fetchList
 }
