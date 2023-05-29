@@ -21,7 +21,7 @@ import LoadingSpinner from '@/components/LoadingSpinner.vue';
 export default {
   data() {
       return {
-          loadingStatus : true,
+          loadingStatus : false,
       }
   },
   components: { ToolBar , LoadingSpinner},

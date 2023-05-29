@@ -64,6 +64,7 @@ export const store = createStore({
                 })
         },
         FETCH_LIST({commit}, pageName){
+            console.log(pageName);
             fetchList(pageName)
                 .then( res => commit('SET_LIST', res.data))
                 .catch(e => console.error(e));
