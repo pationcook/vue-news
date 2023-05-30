@@ -15,7 +15,7 @@ export const store = createStore({
     state: {
         userInfo : {},
         itemInfo : {},
-        list:[],
+        list:[], //현재 UX 문제가 발생하는 이유는 
     },
 
     //상태를 가져오기 위해 사용됨. 확장하여 계산 로직을 추가하여 사용할 수 도 있다. (Computed와 동일한 속성)
@@ -49,14 +49,14 @@ export const store = createStore({
     actions: {
         FETCH_USER({ commit },userName) {
             console.log('FETCH:' + userName);
-            userList(userName)
+            return userList(userName)
                 .then( res => {
                     commit('SET_USER',res.data);
                     return res;
                 })
         },
         FETCH_ITEM({ commit }, id) {
-            itemList(id)
+            return itemList(id)
                 .then( res => {
                     console.log(res.data);
                     commit('SET_ITEMS', res.data);
@@ -65,8 +65,11 @@ export const store = createStore({
         },
         FETCH_LIST({commit}, pageName){
             console.log(pageName);
-            fetchList(pageName)
-                .then( res => commit('SET_LIST', res.data))
+            return fetchList(pageName)
+                .then( res => {
+                    commit('SET_LIST', res.data);
+                    return res;
+                })
                 .catch(e => console.error(e));
         }
     }
