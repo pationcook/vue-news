@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
 export default {
     mounted(){
         // const ctx = document.getElementById('barChart');
@@ -37,7 +36,7 @@ export default {
                 }]
             },
         };
-        new Chart(ctx,cfg);
+        new this.$customChart(ctx,cfg);
     }
 }
 </script>

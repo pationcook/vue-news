@@ -7,17 +7,26 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
+import ChartPlugin from '@/plugins/ChartPlugin.js';
 
 library.add(faEdit)
 library.add(faUser)
 
 
-const app = createApp(App);
 
+const app = createApp(App);
    app.component('font-awesome-icon', FontAwesomeIcon);
    app
     .use(store)
     .use(router)
-    .mount('#app')
+   
+    app.use(ChartPlugin);
+
+    
+    app.mount('#app');
+
+
+
+    
 
 

@@ -3,26 +3,14 @@
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
 export default {
+    props:  ['propdata'],
     mounted(){
         const ctx = this.$refs.lineChart;
-        const config = {
+        const cfg = {
             type: 'line',
             data: {
-                datasets: [{
-                    data: [20, 50, 100, 75, 25, 0],
-                    label: 'Left dataset',
-
-                    // This binds the dataset to the left y axis
-                    yAxisID: 'left-y-axis'
-                }, {
-                    data: [0.1, 0.5, 1.0, 2.0, 1.5, 0],
-                    label: 'Right dataset',
-
-                    // This binds the dataset to the right y axis
-                    yAxisID: 'right-y-axis'
-                }],
+                datasets: this.propdata,
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
             },
             options: {
@@ -38,7 +26,7 @@ export default {
                 }
             }
         }
-        new Chart(ctx, config);
+        new this.$customChart(ctx,cfg);
     }
 
 }
