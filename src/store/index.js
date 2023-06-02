@@ -48,29 +48,36 @@ export const store = createStore({
     //비동기에 대한 변이를 일으키기 위해서 사용됨
     actions: {
         FETCH_USER({ commit },userName) {
-            console.log('FETCH:' + userName);
-            return userList(userName)
-                .then( res => {
-                    commit('SET_USER',res.data);
-                    return res;
-                })
+            try {
+                const res = userList(userName);
+                commit('SET_USER',res.data);
+                return res;    
+            } catch (error) {
+                console.error(error);
+            }
         },
-        FETCH_ITEM({ commit }, id) {
-            return itemList(id)
-                .then( res => {
-                    console.log(res.data);
-                    commit('SET_ITEMS', res.data);
-                    return res;
-                })
+        async FETCH_ITEM({ commit }, id) {
+            // try catch 와 then.catch의 차이점은
+            // axios(promise) 방식의 이벤트 체이닝 기법 then catch는 
+            // 네트워크나 통신관련된 에러만 잡지만
+            // try catch는 더 상위의 에러들까지 잡기 때문에 좀더 포괄적인 에러 컨트롤이 가능하다.
+            try {    
+                const res = await itemList(id)
+                commit('SET_ITEMS', res.data);
+                return res;
+            } catch (error) {
+                console.error(error);
+            }
         },
-        FETCH_LIST({commit}, pageName){
-            console.log(pageName);
-            return fetchList(pageName)
-                .then( res => {
-                    commit('SET_LIST', res.data);
-                    return res;
-                })
-                .catch(e => console.error(e));
+        async FETCH_LIST({commit}, pageName){
+            try {
+                const res = await fetchList(pageName);    
+                commit('SET_LIST', res.data);
+                return res;
+            } catch (error) {
+                console.error(error);
+            }
+            
         }
     }
 });
