@@ -4,6 +4,12 @@ import userView from '../views/UserView.vue';
 import CreatedListView from '@/views/CreatedListView';
 import NewsView from '../views/NewsView.vue';
 import chartView from '../views/ChartView.vue'
+
+import commonView from '../views/CommonView.vue'
+import slotView from '../views/SlotView.vue'
+import controlledView from '../views/ControlledView.vue'
+import renderlessView from '../views/RenderlessView.vue'
+
 import { store } from '@/store';
 //import bus from '../components/bus.js';
 //route도 모듈화
@@ -43,5 +49,21 @@ export const headerMenuRoutes = [
     {
         path : '/chart',
         component: chartView,
+    },
+    {
+        path : '/common',
+        component: commonView,
+    },
+    {
+        path : '/slot',
+        component: slotView,
+    },
+    {
+        path : '/controlled',
+        component: controlledView,
+    },
+    {
+        path : '/renderless',
+        component : renderlessView,
     }
 ]
