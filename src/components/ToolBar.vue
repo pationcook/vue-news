@@ -1,15 +1,17 @@
 <template>
     <div v-id class="header">
+        <div>
         <router-link to="/ask"> ASK  </router-link> |
         <router-link to="/jobs">JOBS </router-link> |
         <router-link to="/news">NEWS </router-link> |
         <router-link to="/chart">Chart </router-link> | 
-        <span>&nbsp;컴포넌트에서 제공되는 디자인패턴들 : </span>
-        <router-link to="/common">일반적인패턴 </router-link> ,
-        <router-link to="/slot">슬롯을이용한패턴 </router-link> ,
-        <router-link to="/controlled">Controlled </router-link> ,
-        <router-link to="/renderless">RenderLess </router-link> 
-       
+        
+            <span>&nbsp;디자인패턴들 : </span>
+            <router-link to="/common">일반적인패턴 </router-link> ,
+            <router-link to="/slot">슬롯을이용한패턴 </router-link> ,
+            <router-link to="/controlled">Controlled </router-link> ,
+            <router-link to="/renderless">RenderLess </router-link> 
+        </div>
 
     </div>    
 </template>
