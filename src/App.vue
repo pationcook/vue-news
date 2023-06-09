@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import ToolBar from '@/components/ToolBar.vue';
-import LoadingSpinner from '@/components/LoadingSpinner.vue';
+import ToolBar from '@/components/Common/ToolBar.vue';
+import LoadingSpinner from '@/components/Common/LoadingSpinner.vue';
 
 export default {
   data() {

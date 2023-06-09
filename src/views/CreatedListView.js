@@ -1,4 +1,4 @@
-import ListView from './ListView.vue'
+import ListView from '@/views/default/ListView.vue'
 import { h } from 'vue';
 export default function CreatedListView(name){
     return {

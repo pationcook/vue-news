@@ -1,6 +1,5 @@
 <template>
   <div>
-    <div v-html="this.description"></div>
     <ul>
         <li v-for="item in items" v-bind:key="item">
             {{ item }}
@@ -17,9 +16,6 @@ export default {
             //props validation
             type: Array,
             required: true,
-        },
-        description: {
-            type: String,
         }
     }
 }

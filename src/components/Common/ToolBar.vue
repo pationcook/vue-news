@@ -7,10 +7,10 @@
         <router-link to="/chart">Chart </router-link> | 
         
             <span>&nbsp;디자인패턴들 : </span>
-            <router-link to="/common">일반적인패턴 </router-link> ,
-            <router-link to="/slot">슬롯을이용한패턴 </router-link> ,
-            <router-link to="/controlled">Controlled </router-link> ,
-            <router-link to="/renderless">RenderLess </router-link> 
+            <router-link to="/common">1</router-link> ,
+            <router-link to="/slot">2 </router-link> ,
+            <router-link to="/controlled">3</router-link> ,
+            <router-link to="/renderless">4</router-link> 
         </div>
 
     </div>    

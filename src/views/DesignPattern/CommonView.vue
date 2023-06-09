@@ -1,7 +1,7 @@
 <template>
     <div>
-        <app-header :title="appTitle"></app-header>
-        <app-content  @renew="renewItem()" :items="items" :description="description"></app-content>
+        <pattern-header :title="appTitle" :description="description"></pattern-header>
+        <app-content  @renew="renewItem()" :items="items"></app-content>
     </div>
 </template>
 
@@ -9,16 +9,16 @@
    , 이쪽에서 다시 하위로 데이터를 내려서 조작하는 방법이다 -->
 
 <script>
-import AppContent from '@/components/CommonDesign/AppContent.vue';
-import AppHeader from '@/components/CommonDesign/AppHeader.vue';
+import AppContent from '@/components/DesignPattern/CommonDesign.vue';
+import PatternHeader from '@/components/Common/PatternHeader.vue';
 export default {
     components: {
         AppContent,
-        AppHeader
+        PatternHeader
     },
     data() {
         return {
-            appTitle: '가장 일반적인 디자인 패턴 (에밋과 props 사용)',
+            appTitle: '가장 일반적인 디자인 패턴 (에밋과 props를 이용)',
             description: 
                 '기본 적인 디자인 패턴으로 버튼을 클릭하게 되면,'+
             '<br>하위 컴포넌트에서 에밋을 이용하여 상위의 함수에 접근 한 뒤,'+

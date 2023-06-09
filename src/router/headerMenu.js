@@ -1,14 +1,14 @@
 
-import itemView from '../views/ItemView.vue';
-import userView from '../views/UserView.vue';
+import itemView from '@/views/default/ItemView.vue';
+import userView from '@/views/default/UserView.vue';
+import NewsView from '@/views/default/NewsView.vue';
+import chartView from '@/views/Chart/ChartView.vue'
 import CreatedListView from '@/views/CreatedListView';
-import NewsView from '../views/NewsView.vue';
-import chartView from '../views/ChartView.vue'
 
-import commonView from '../views/CommonView.vue'
-import slotView from '../views/SlotView.vue'
-import controlledView from '../views/ControlledView.vue'
-import renderlessView from '../views/RenderlessView.vue'
+import slotView from '@/views/DesignPattern/SlotView.vue'
+import commonView from '@/views/DesignPattern/CommonView.vue'
+import controlledView from '@/views/DesignPattern/ControlledView.vue'
+import renderlessView from '@/views/DesignPattern/RenderlessView.vue'
 
 import { store } from '@/store';
 //import bus from '../components/bus.js';
